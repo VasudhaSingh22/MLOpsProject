@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
+    - path: source_code/airfoil_nasa.csv
+      md5: 201b8525d8e718b17ad9fec2ab5e2adb
+      size: 60948
+    - path: src/get_data.py
+      md5: b185deb34854ea9cb8bb98c05e893d89
+      size: 697
+    - path: src/load_data.py
+      md5: 0d5bf0f95f34f7951f5496a4f2d883cf
+      size: 704
+    outs:
+    - path: data/raw/airfoil_nasa.csv
+      md5: 201b8525d8e718b17ad9fec2ab5e2adb
+      size: 60948
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/raw/airfoil_nasa.csv
+      md5: 201b8525d8e718b17ad9fec2ab5e2adb
+      size: 60948
+    - path: src/split_data.py
+      md5: e9c2bc8d7e2f2aca28a9848586193834
+      size: 1098
+    outs:
+    - path: data/processed/test_airfoil_nasa.csv
+      md5: 4e552054afca42d81f5e008404bfcb9b
+      size: 12225
+    - path: data/processed/train_airfoil_nasa.csv
+      md5: 4cef05af45fbd1ddd105e868803d21ec
+      size: 48756
+  train_and_evaluate:
+    cmd: python src/train_and_evaluate.py --config=params.yaml
+    deps:
+    - path: data/processed/test_airfoil_nasa.csv
+      md5: 4e552054afca42d81f5e008404bfcb9b
+      size: 12225
+    - path: data/processed/train_airfoil_nasa.csv
+      md5: 4cef05af45fbd1ddd105e868803d21ec
+      size: 48756
+    - path: src/train_and_evaluate.py
+      md5: f034d3aa7623c986704a13d1cabad5d0
+      size: 3588
+    params:
+      params.yaml:
+        estimators.ElasticNet.params.alpha: 0.9
+        estimators.ElasticNet.params.l1_ratio: 0.4

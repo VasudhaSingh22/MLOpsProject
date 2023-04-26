@@ -17,8 +17,8 @@ split_data:
 estimators:
   ElasticNet:
     params:
-      alpha: 0.9
-      l1_ratio: 0.4
+      alpha: 0.7
+      l1_ratio: 0.2
 
 model_dir: models
 
@@ -27,3 +27,10 @@ reports:
   scores: reports/scores.json
 
 webapp_model_dir: prediction_service/model/model.joblib
+
+mlflow_config:
+  artifacts_dir: artifacts
+  experiment_name: ElasticNet_Expense
+  run_name: mlops
+  registered_model_name: ElasticNetAirfoilNASA
+  remote_server_uri: http://127.0.0.1:5000
