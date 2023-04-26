@@ -81,12 +81,7 @@ def train_and_evaluate(config_path):
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("mae", mae)
         mlflow.log_metric('r2', r2)
-        tracking_url_type_store = urlparse(mlflow.get_artifact_uri()).scheme
-        if tracking_url_type_store != "file":
-            mlflow.sklearn.log_model(lr, "model", registered_model_name = mlflow_config["registered_model_name"])
-        else:
-            mlflow.sklearn.log_model(lr, "model")
-        
+        mlflow.sklearn.log_model(lr, "model", registered_model_name = mlflow_config["registered_model_name"])
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
