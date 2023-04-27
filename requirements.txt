@@ -12,3 +12,4 @@ dvc
 jupyterlab
 scikit-learn
 mlflow
+django

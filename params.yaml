@@ -33,4 +33,4 @@ mlflow_config:
   experiment_name: ElasticNet_Expense
   run_name: mlops
   registered_model_name: ElasticNetAirfoilNASA
-  remote_server_uri: http://127.0.0.1:5000
+  remote_server_uri: http://ec2-13-232-35-55.ap-south-1.compute.amazonaws.com:5000/
