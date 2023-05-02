@@ -1,0 +1,15 @@
+cmd: python src/split_data.py --config=params.yaml
+deps:
+- path: data/raw/airfoil_nasa.csv
+  md5: 201b8525d8e718b17ad9fec2ab5e2adb
+  size: 60948
+- path: src/split_data.py
+  md5: e9c2bc8d7e2f2aca28a9848586193834
+  size: 1098
+outs:
+- path: data/processed/test_airfoil_nasa.csv
+  md5: 4e552054afca42d81f5e008404bfcb9b
+  size: 12225
+- path: data/processed/train_airfoil_nasa.csv
+  md5: 4cef05af45fbd1ddd105e868803d21ec
+  size: 48756

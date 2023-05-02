@@ -1,0 +1,15 @@
+cmd: python src/load_data.py --config=params.yaml
+deps:
+- path: source_code/airfoil_nasa.csv
+  md5: 201b8525d8e718b17ad9fec2ab5e2adb
+  size: 60948
+- path: src/get_data.py
+  md5: b185deb34854ea9cb8bb98c05e893d89
+  size: 697
+- path: src/load_data.py
+  md5: 0d5bf0f95f34f7951f5496a4f2d883cf
+  size: 704
+outs:
+- path: data/raw/airfoil_nasa.csv
+  md5: 201b8525d8e718b17ad9fec2ab5e2adb
+  size: 60948
