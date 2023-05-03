@@ -9,6 +9,7 @@ COPY requirements.txt /webapp/
 RUN python -m pip install awscli
 RUN python -m pip install boto3
 RUN pip install -r requirements.txt
+RUN pip list
 COPY webapp /webapp/
 EXPOSE 80
 
