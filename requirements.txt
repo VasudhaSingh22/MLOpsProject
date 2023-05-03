@@ -6,7 +6,7 @@ Sphinx
 coverage
 awscli
 boto3==1.9.206
-botocore==1.12.201
+botocore==1.12.206
 colorama
 docutils
 flake8
