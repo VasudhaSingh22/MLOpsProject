@@ -4,6 +4,9 @@ matplotlib
 click
 Sphinx
 coverage
+awscli
+boto3==1.9.206
+botocore==1.12.201
 colorama
 docutils
 flake8
