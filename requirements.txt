@@ -5,7 +5,7 @@ click
 Sphinx
 coverage
 awscli
-boto3
+boto3==1.26.125
 colorama
 docutils
 flake8
