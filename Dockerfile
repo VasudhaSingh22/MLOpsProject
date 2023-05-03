@@ -6,6 +6,8 @@ WORKDIR /webapp
 RUN pip install --upgrade pip
 COPY requirements.txt /webapp/
 
+RUN python -m pip install boto3
+RUN python -m pip install awscli
 RUN pip install -r requirements.txt
 COPY webapp /webapp/
 EXPOSE 80
