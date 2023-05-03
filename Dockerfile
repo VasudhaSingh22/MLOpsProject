@@ -1,9 +1,13 @@
-FROM ubuntu
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get install apache2 -y
-RUN apt-get install apache2-utils -y
-RUN apt-get clean
+FROM python:3.9-slim
+ENV PYTHONDONTWRITECODE 1
+ENV PYTHONBUFFERED 1
+RUN mkdir /webapp
+WORKDIR /webapp
+RUN pip install --upgrade pip
+COPY requirements.txt /webapp/
+
+RUN pip install -r requirements.txt
+COPY webapp /webapp/
 EXPOSE 80
-RUN echo "Hello From Server" > /var/www/html/index.html
-CMD [ "apache2ctl", "-D", "FOREGROUND"]
+
+CMD ["python", "./webapp/manage.py", "runserver", "0.0.0.0:8000"]

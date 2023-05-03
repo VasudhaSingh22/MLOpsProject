@@ -13,3 +13,5 @@ jupyterlab
 scikit-learn
 mlflow
 django
+aws-ecs-services
+gunicorn
