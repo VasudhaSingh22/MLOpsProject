@@ -14,5 +14,4 @@ mlflow
 django
 aws-ecs-services
 gunicorn
-psycopg2
-psycopg
+psycopg2-binary
