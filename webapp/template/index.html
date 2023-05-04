@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NASA AirFoil Self-Noise</title>
+<style> 
+    .button{
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button1{background-color: chocolate;}
+    .button2{background-color: darkorange;}
+</style>
+</head>
+<body style = 'background-color: darkslateblue;'>
+
+<center><h1><span style="color: forestgreen;">NASA AirFoil Self-Noise Prediction App</span></h1>
+    <center><h3>Please Enter The Data: </h3></center><br>
+    <form action="{% url 'result' %}">
+        {% csrf_token %}
+        <table align="center">
+            <tr><td>Frequency: <td><input type="text" required name="f"></td></tr>
+            <tr><td>Alpha: <td><input type="text" required name="alpha"></td></tr>
+            <tr><td>Chord Length: <td><input type="text" required name="c"></td></tr>
+            <tr><td>Velocity: <td><input type="text" required name="U_infinity"></td></tr>
+            <tr><td>Displacement Thickness: <td><input type="text" required name="delta"></td></tr>
+        </table>
+        <center><button type="submit" name = '' value="submit" class="button button1">Submit</button></center>
+        <center><button type="reset" name = '' value="reset" class="button button1">Reset</button></center>
+    </form>
+    {% if answer %}
+    <center><h2 style="color: darkgoldenrod"> The Scaled Sound Pressure Level: {{answer}} Decibels.</h2>
+    <h3 style="color: darksalmon">Thanks for using the Airfoil Prediction App.</h3></h2>
+    </center>
+    {% endif %}
+</center>
+</body>
+</html>
