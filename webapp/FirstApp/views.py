@@ -11,12 +11,7 @@ def index(request):
     return render(request, "index.html")
 
 def result(request):
-    # Get the absolute path to the directory containing this script
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    # Construct the absolute path to the model file
-    model_path = os.path.join(current_dir, 'prediction_service', 'model', 'model.joblib')
-    # Load the model
-    model = joblib.load(model_path)
+    model = joblib.load("webapp/FirstApp/prediction_service/model/model.joblib")
     list = []
     list.append(float(request.GET['f']))
     list.append(float(request.GET['alpha']))
