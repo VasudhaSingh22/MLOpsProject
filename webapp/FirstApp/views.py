@@ -11,7 +11,12 @@ def index(request):
     return render(request, "index.html")
 
 def result(request):
-    model = joblib.load('model.joblib')
+    # Get the absolute path to the directory containing this script
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Construct the absolute path to the model file
+    model_path = os.path.join(current_dir, 'prediction_service', 'model', 'model.joblib')
+    # Load the model
+    model = joblib.load(model_path)
     list = []
     list.append(float(request.GET['f']))
     list.append(float(request.GET['alpha']))
