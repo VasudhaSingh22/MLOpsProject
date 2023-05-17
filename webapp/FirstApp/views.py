@@ -11,7 +11,7 @@ def index(request):
     return render(request, "index.html")
 
 def result(request):
-    model = joblib.load('/model.joblib')
+    model = joblib.load('../prediction_service/model/model.joblib')
     list = []
     list.append(float(request.GET['f']))
     list.append(float(request.GET['alpha']))
