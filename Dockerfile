@@ -6,8 +6,8 @@ WORKDIR /webapp
 RUN pip install --upgrade pip
 COPY requirements.txt /webapp/
 
-COPY . .
 RUN pip install -r requirements.txt
+COPY webapp /webapp/
 EXPOSE 5000
 EXPOSE 8000
 
