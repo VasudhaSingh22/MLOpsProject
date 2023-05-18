@@ -8,7 +8,6 @@ COPY requirements.txt /webapp/
 
 RUN pip install -r requirements.txt
 COPY webapp /webapp/
-COPY models/model.joblib /model/
 EXPOSE 5000
 EXPOSE 8000
 
